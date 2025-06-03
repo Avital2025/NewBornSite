@@ -1593,6 +1593,7 @@ import ContactSection from './ContactSection';
 
 export default function Home() {
     return (
+        <>
         <Box sx={{ minHeight: '100vh', background: 'linear-gradient(to bottom, #FFF0F5, #FFFFFF)' }}>
             <Navbar />
             <HeroSection />
@@ -1601,6 +1602,7 @@ export default function Home() {
             <AboutSection />
             <ContactSection />
             <Footer />
-        </Box>
+         </Box>
+        </>
     );
 }
