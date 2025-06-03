@@ -1,93 +1,69 @@
 import {
-    Box, Typography, Container, GridLegacy as Grid, Card, CardContent,
-    Avatar, Button
-} from '@mui/material';
-
-import { BabyChangingStation as BabyIcon, PhotoCamera as CameraIcon } from '@mui/icons-material';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-
-export default function ServicesSection() {
-    <p>services</p>
+    Box, Typography, Container, GridLegacy as Grid, Card, CardContent, Avatar
+  } from '@mui/material';
+  import StarIcon from '@mui/icons-material/Star';
+  
+  const testimonials = [
+    {
+      name: 'מורן לוי',
+      content: 'חוויה מדהימה! הצילומים היו נעימים, מקצועיים, ויצאו תמונות פשוט מושלמות.',
+      color: 'pink',
+    },
+    {
+      name: 'דנה פרץ',
+      content: 'ממליצה בחום! ידע להרגיע את התינוק, לכוון אותנו, והתוצאה מדהימה.',
+      color: 'purple',
+    },
+    {
+      name: 'אורית שחר',
+      content: 'עברנו הרבה צלמים, אבל כאן מצאנו שילוב נדיר של סבלנות, מקצועיות ואסתטיקה.',
+      color: 'blue',
+    },
+  ];
+  
+  export default function TestimonialsSection() {
     return (
-        <Box id="services" sx={{ py: 8, backgroundColor: 'white' }}>
-            <Container maxWidth="lg">
-                <Box sx={{ textAlign: 'center', mb: 8 }}>
-                    <Typography variant="h3" component="h2" sx={{ fontWeight: 'bold', color: 'grey.800', mb: 2 }}>
-                        השירותים שלי
+      <Box id="testimonials" sx={{ py: 10, backgroundColor: 'grey.50' }}>
+        <Container maxWidth="lg">
+          <Box sx={{ textAlign: 'center', mb: 8 }}>
+            <Typography variant="h3" component="h2" sx={{ fontWeight: 'bold', color: 'grey.800', mb: 2 }}>
+              המלצות חמות
+            </Typography>
+            <Typography variant="h6" sx={{ color: 'grey.600', maxWidth: 600, mx: 'auto' }}>
+              מהלקוחות המרוצים שלי
+            </Typography>
+          </Box>
+  
+          <Grid container spacing={4}>
+            {testimonials.map((t, idx) => (
+              <Grid item xs={12} md={4} key={idx}>
+                <Card
+                  sx={{
+                    height: '100%',
+                    textAlign: 'center',
+                    border: `1px solid ${t.color}.100`,
+                    boxShadow: 0,
+                    '&:hover': { boxShadow: 4 },
+                    transition: 'box-shadow 0.3s',
+                  }}
+                >
+                  <CardContent sx={{ p: 4 }}>
+                    <Avatar sx={{ bgcolor: `${t.color}.100`, width: 64, height: 64, mx: 'auto', mb: 2 }}>
+                      <StarIcon sx={{ color: `${t.color}.500` }} />
+                    </Avatar>
+                    <Typography variant="body1" sx={{ color: 'grey.700', mb: 2 }}>
+                      {t.content}
                     </Typography>
-                    <Typography variant="h6" sx={{ color: 'grey.600', maxWidth: '600px', mx: 'auto' }}>
-                        מגוון שירותי צילום מותאמים לכל משפחה ולכל רגע מיוחד
+                    <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: `${t.color}.700` }}>
+                      {t.name}
                     </Typography>
-                </Box>
-
-                <Grid container spacing={4}>
-                    <Grid item xs={12} md={4}>
-                        <Card sx={{ borderColor: 'pink.100', '&:hover': { boxShadow: 3 }, transition: 'box-shadow 0.3s' }}>
-                            <CardContent sx={{ p: 4, textAlign: 'center' }}>
-                                <Avatar sx={{ bgcolor: 'pink.100', width: 64, height: 64, mx: 'auto', mb: 3 }}>
-                                    <BabyIcon sx={{ fontSize: 32, color: 'pink.500' }} />
-                                </Avatar>
-                                <Typography variant="h5" component="h3" sx={{ fontWeight: 'bold', color: 'grey.800', mb: 2 }}>
-                                    צילומי ניובורן
-                                </Typography>
-                                <Typography variant="body1" sx={{ color: 'grey.600', mb: 3 }}>
-                                    צילומים עדינים ובטוחים לתינוקות בגיל 5-14 יום. כולל פוזות קלאסיות ויצירתיות.
-                                </Typography>
-                                <Typography variant="h4" sx={{ fontWeight: 'bold', color: 'pink.500', mb: 2 }}>
-                                    ₪800
-                                </Typography>
-                                <Button variant="outlined" sx={{ borderColor: 'pink.300', color: 'pink.600', '&:hover': { backgroundColor: 'pink.50' } }}>
-                                    פרטים נוספים
-                                </Button>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-
-                    <Grid item xs={12} md={4}>
-                        <Card sx={{ borderColor: 'pink.100', '&:hover': { boxShadow: 3 }, transition: 'box-shadow 0.3s' }}>
-                            <CardContent sx={{ p: 4, textAlign: 'center' }}>
-                                <Avatar sx={{ bgcolor: 'purple.100', width: 64, height: 64, mx: 'auto', mb: 3 }}>
-                                    <FavoriteBorderIcon sx={{ fontSize: 32, color: 'purple.500' }} />
-                                </Avatar>
-                                <Typography variant="h5" component="h3" sx={{ fontWeight: 'bold', color: 'grey.800', mb: 2 }}>
-                                    צילומי משפחה
-                                </Typography>
-                                <Typography variant="body1" sx={{ color: 'grey.600', mb: 3 }}>
-                                    צילומים משפחתיים חמים הכוללים את כל בני המשפחה עם התינוק החדש.
-                                </Typography>
-                                <Typography variant="h4" sx={{ fontWeight: 'bold', color: 'purple.500', mb: 2 }}>
-                                    ₪600
-                                </Typography>
-                                <Button variant="outlined" sx={{ borderColor: 'purple.300', color: 'purple.600', '&:hover': { backgroundColor: 'purple.50' } }}>
-                                    פרטים נוספים
-                                </Button>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-
-                    <Grid item xs={12} md={4}>
-                        <Card sx={{ borderColor: 'pink.100', '&:hover': { boxShadow: 3 }, transition: 'box-shadow 0.3s' }}>
-                            <CardContent sx={{ p: 4, textAlign: 'center' }}>
-                                <Avatar sx={{ bgcolor: 'blue.100', width: 64, height: 64, mx: 'auto', mb: 3 }}>
-                                    <CameraIcon sx={{ fontSize: 32, color: 'blue.500' }} />
-                                </Avatar>
-                                <Typography variant="h5" component="h3" sx={{ fontWeight: 'bold', color: 'grey.800', mb: 2 }}>
-                                    חבילה מלאה
-                                </Typography>
-                                <Typography variant="body1" sx={{ color: 'grey.600', mb: 3 }}>
-                                    שילוב של צילומי ניובורן וצילומי משפחה במחיר מיוחד.
-                                </Typography>
-                                <Typography variant="h4" sx={{ fontWeight: 'bold', color: 'blue.500', mb: 2 }}>
-                                    ₪1200
-                                </Typography>
-                                <Button variant="outlined" sx={{ borderColor: 'blue.300', color: 'blue.600', '&:hover': { backgroundColor: 'blue.50' } }}>
-                                    פרטים נוספים
-                                </Button>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                </Grid>
-            </Container>
-        </Box>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
     );
-}
+  }
+  
